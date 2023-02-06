@@ -8374,6 +8374,7 @@ int main(int argc, char** argv) {
     //queue_cur = queue_cur->next;
     //current_entry++;
 
+    int logging = 1;
     if (logging) {
         //                fprintf(stderr, "\rprofiling to %s ", out_dir);
         //                tmp = alloc_printf("%s/profile_deo", out_dir);
@@ -8420,7 +8421,7 @@ int main(int argc, char** argv) {
         //                ck_free(tmp);
 
         tmp = alloc_printf("%s/length_profile", out_dir);
-        fd = open(tmp, O_WRONLY | O_CREAT, 0600);
+        s32 fd = open(tmp, O_WRONLY | O_CREAT, 0600);
         profile_file = fdopen(fd, "w");
         if (!profile_file) PFATAL("fdopen() failed");
 
