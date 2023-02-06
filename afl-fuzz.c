@@ -8358,6 +8358,10 @@ int main(int argc, char** argv) {
 
     queue_cur->num_selected++;
     skipped_fuzz = fuzz_one(use_argv);
+    if(!queue_cur->last_find) {
+        queue_cur->num_nofind++;
+    }
+    queue_cur->last_find = 0;
     total_selected++;
 
     if (!stop_soon && sync_id && !skipped_fuzz) {
